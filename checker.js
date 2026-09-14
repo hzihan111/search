@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const CONFIG = {
   minLen: 4,
-  maxLen: 6, 
+  maxLen: 4, 
   chars: 'abcdefghijklmnopqrstuvwxyz0123456789-',
   concurrency: 10,
 };
