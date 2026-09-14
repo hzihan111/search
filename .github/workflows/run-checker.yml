@@ -1,1 +1,28 @@
+name: Netlify Name Checker
 
+on:
+  workflow_dispatch:
+
+jobs:
+  check-domains:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 取得程式碼
+        uses: actions/checkout@v4
+
+      - name: ⚙️ 設定 Node.js 環境
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: 🚀 執行檢查器腳本
+        run: node checker.js
+
+      - name: 📦 保存單一 HTML 結果報告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: netlify-report-html
+          path: index.html
+          
