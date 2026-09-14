@@ -12,7 +12,7 @@ const CONFIG = {
   startWord: '', 
 
   // 每分鐘 1200 個 * 60 分鐘 * 6 小時 = 432,000 個
-  batchLimit: 1350000, 
+  batchLimit: 800000, 
 };
 
 // 產生器：支援從指定的 startWord 接續下去，並嚴格計算上限
@@ -86,7 +86,7 @@ async function startChecker() {
         const exists = await checkName(name);
         doneCount++;
 
-        if (doneCount % 5000 === 0) {
+        if (doneCount % 1000 === 0) {
           console.log(`⏱️ 已處理：${doneCount.toLocaleString()} / ${CONFIG.batchLimit.toLocaleString()} (目前：${name})`);
         }
 
